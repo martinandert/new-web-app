@@ -1,0 +1,80 @@
+{
+  "env": {
+    "server-development": {
+      "presets": [
+        "es2015-node5",
+        "stage-1",
+        "react"
+      ],
+
+      "plugins": [
+        "transform-dev",
+        "transform-node-env-inline",
+        "react-require",
+        [
+          "css-in-js", {
+            "bundleFile": "build/cssinjs.css"
+          }
+        ]
+      ]
+    },
+
+    "browser-development": {
+      "presets": [
+        "es2015",
+        "stage-1",
+        "react"
+      ],
+
+      "plugins": [
+        "transform-dev",
+        "react-require",
+        [
+          "css-in-js", {
+            "bundleFile": "build/cssinjs.css"
+          }
+        ]
+      ]
+    },
+
+    "server-production": {
+      "presets": [
+        "es2015-node5",
+        "stage-1",
+        "react"
+      ],
+
+      "plugins": [
+        "transform-dev",
+        "transform-node-env-inline",
+        "react-require",
+        [
+          "css-in-js", {
+            "bundleFile": "build/cssinjs.css",
+            "compressClassNames": true,
+            "vendorPrefixes": true
+          }
+        ]
+      ]
+    },
+
+    "browser-production": {
+      "presets": [
+        "es2015",
+        "stage-1",
+        "react"
+      ],
+
+      "plugins": [
+        "transform-dev",
+        "react-require",
+        [
+          "css-in-js", {
+            "bundleFile": null,
+            "compressClassNames": true
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var execSync = require('child_process').execSync;
+
+function exec(command) {
+  console.log(command);
+  execSync(command, { stdio: [0, 1, 2] });
+}
+
+var settings        = require('../package.json');
+var dependencies    = Object.keys(settings.dependencies).join(' ');
+var devDependencies = Object.keys(settings.devDependencies).join(' ');
+
+settings.dependencies    = {};
+settings.devDependencies = {};
+
+fs.writeFile('package.json', JSON.stringify(settings, null, 2), function(err) {
+  if (err) {
+    console.error(err);
+    return;
+  }
+
+  exec('rm -rf node_modules');
+  exec('npm install --save ' + dependencies);
+  exec('npm install --save-dev ' + devDependencies);
+});
