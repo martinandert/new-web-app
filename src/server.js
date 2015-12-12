@@ -25,7 +25,7 @@ app.use(express.static(publicPath, { index: false }));
 app.use(logger(__DEV__ ? 'dev' : 'combined'));
 
 app.get('*', (req, res, next) => {
-  match({ routes, location: req.originalUrl }, (error, redirect, renderProps) => {
+  function handler(error, redirect, renderProps) {
     if (error) {
       next(error);
     } else if (redirect) {
@@ -39,7 +39,9 @@ app.get('*', (req, res, next) => {
       // should never be reached since we have a catch-all route
       res.status(404).send('404 - Not Found');
     }
-  });
+  }
+
+  match({ routes, location: req.originalUrl }, handler);
 });
 
 if (__DEV__) {
@@ -47,6 +49,8 @@ if (__DEV__) {
 }
 
 app.listen(port, () => {
+  /* eslint-disable no-console */
   console.info(`Running in ${process.env.NODE_ENV} environment`);
   console.info(`Listening at http://localhost:${port}`);
+  /* eslint-enable no-console */
 });

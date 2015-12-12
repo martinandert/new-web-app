@@ -1,11 +1,16 @@
 {
   "parser": "babel-eslint",
-  "rules": {
-    "strict": [2, "never"],
-    "quotes": [2, "single", "avoid-escape"],
-    "no-multi-spaces": 0
-  },
+  "extends": "airbnb",
   "env": {
     "node": true
+  },
+  "globals": {
+    "__DEV__": false,
+    "cssInJS": false
+  },
+  "rules": {
+    "no-use-before-define": 0,
+    "no-param-reassign": 0,
+    "react/react-in-jsx-scope": 0
   }
 }

@@ -1,20 +1,28 @@
-import { Component } from 'react';
+import { Component, PropTypes } from 'react';
 import { Link as RouterLink, IndexLink as RouterIndexLink } from 'react-router';
 
-export default class Link extends Component {
+class Link extends Component {
   render() {
-    if (this.props.index) {
-      return <RouterIndexLink activeClassName={styles.active} {...this.props} />;
-    }
+    const LinkComponent = this.props.isIndex ? RouterIndexLink : RouterLink;
 
-    return <RouterLink activeClassName={styles.active} {...this.props} />;
+    return <LinkComponent activeClassName={styles.active} {...this.props} />;
   }
+}
+
+Link.propTypes = {
+  isIndex: PropTypes.bool,
+};
+
+Link.defaultProps = {
+  isIndex: false,
 };
 
 const styles = cssInJS({
   active: {
     color: 'black',
     textDecoration: 'none',
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
+
+export default Link;

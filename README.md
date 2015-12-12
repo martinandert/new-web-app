@@ -11,7 +11,7 @@ $ git clone --depth=1 https://github.com/martinandert/new-web-app.git MY-APP-NAM
 $ cd MY-APP-NAME && rm -rf .git/ && npm install
 ```
 
-Replace `MY-APP-NAME` with, well, the name you'd like to give your app.
+Replace `MY-APP-NAME` with the name you'd like to give your app.
 
 ## Running the app
 

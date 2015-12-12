@@ -1,7 +1,7 @@
 import { Route, IndexRoute, Redirect } from 'react-router';
 
 import App from './components/App';
-import Home from './components/pages/Home'
+import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Users from './components/pages/Users';
 import User from './components/pages/User';
