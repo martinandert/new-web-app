@@ -6,7 +6,11 @@
   },
   "globals": {
     "__DEV__": false,
-    "cssInJS": false
+    "cssInJS": false,
+    "jest": false,
+    "describe": false,
+    "it": false,
+    "expect": false
   },
   "rules": {
     "no-use-before-define": 0,

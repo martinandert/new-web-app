@@ -28,6 +28,7 @@
     "production": "node .",
     "prepublish": "npm run production:build",
     "lint": "eslint src/",
+    "test": "NODE_ENV=test jest",
     "start": "npm run ${NODE_ENV:-development}"
   },
   "author": "Martin Andert",
@@ -59,6 +60,7 @@
     "babel-cli": "^6.3.15",
     "babel-core": "^6.3.15",
     "babel-eslint": "^4.1.6",
+    "babel-jest": "^6.0.1",
     "babel-loader": "^6.2.0",
     "babel-plugin-css-in-js": "^1.1.0",
     "babel-plugin-react-require": "^2.1.0",
@@ -72,9 +74,20 @@
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^2.0.0",
     "eslint-plugin-react": "^3.11.3",
+    "jest-cli": "^0.8.1",
     "node-dev": "^2.7.1",
     "node-sass": "^3.4.2",
+    "react-addons-test-utils": "^0.14.3",
     "rimraf": "^2.4.4",
     "webpack": "^1.12.9"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react",
+      "<rootDir>/node_modules/react-dom",
+      "<rootDir>/node_modules/react-addons-test-utils",
+      "<rootDir>/node_modules/fbjs"
+    ]
   }
 }

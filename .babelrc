@@ -75,6 +75,24 @@
           }
         ]
       ]
+    },
+
+    "test": {
+      "presets": [
+        "es2015-node5",
+        "stage-1",
+        "react"
+      ],
+
+      "plugins": [
+        "transform-dev",
+        "react-require",
+        [
+          "css-in-js", {
+            "bundleFile": null
+          }
+        ]
+      ]
     }
   }
 }
