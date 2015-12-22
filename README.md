@@ -24,7 +24,7 @@ $ NODE_ENV=production npm start
 
 The `npm run production:build` command is only necessary if you've changed something.
 
-**To run it in development, watching files for changes:**
+**To run it in development, with hot module reloading, and watching files for changes:**
 
 ```sh
 $ npm start
